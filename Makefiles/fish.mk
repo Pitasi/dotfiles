@@ -1,3 +1,3 @@
 fisher-update:
-> fisher self-update
-> fisher
+> fish -c fisher self-update
+> fish -c fisher
