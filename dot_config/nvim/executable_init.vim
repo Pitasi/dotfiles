@@ -38,7 +38,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
-Plug 'tsony-tsonev/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'qpkorr/vim-bufkill'
@@ -46,6 +45,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kassio/neoterm'
 Plug 'DougBeney/pickachu'
+Plug 'junegunn/goyo.vim'
+Plug 'amix/vim-zenroom2'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " keep this at the end
 call plug#end()
 
@@ -228,7 +230,7 @@ let g:NERDTreeColorMapCustom = {
 filetype plugin on
 
 " 2 spaces as tab for the following languages
-au FileType html,rust,javascript,tex,css,scss setlocal
+au FileType html,rust,javascript,tex,css,scss,yaml setlocal
     \ tabstop=2
     \ softtabstop=2
     \ shiftwidth=2
@@ -267,12 +269,6 @@ let g:go_highlight_types = 1
 let g:go_fmt_command = "goimports" " auto imports
 let g:go_auto_type_info = 1
 let g:go_addtags_transform = "snakecase" " :GoAddTags automatic json tags!
-
-
-" Workspace Setup
-" ----------------
-" silent source ~/.nvim-session/Session.vim              " load last session
-" autocmd VimEnter * Obsession ~/.nvim-session    " store last session on changes
 
 
 " open 10 line terminal below
@@ -420,6 +416,7 @@ let g:coc_snippet_next = '<tab>'
 " Workspace sessions directory
 " I use this only for session management, that's why autosave and undo history
 " are disabled
+let g:workspace_create_new_tabs = 0
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 let g:workspace_persist_undo_history = 0
 let g:workspace_autosave = 0
