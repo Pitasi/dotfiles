@@ -12,3 +12,7 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 if command -v tmux > /dev/null && ! set -q TMUX && status is-interactive
     exec tmux new-session -A -s default
 end
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/__tabtab.fish ]; and . ~/.config/tabtab/__tabtab.fish; or true
