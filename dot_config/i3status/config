@@ -18,6 +18,7 @@ general {
 order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "volume master"
 order += "battery all"
 order += "disk /"
 order += "load"
@@ -55,4 +56,9 @@ memory {
 
 tztime local {
         format = "%Y-%m-%d %H:%M:%S"
+}
+
+volume master {
+		format = "%volume"
+		format_muted = "muted (%volume)"
 }
