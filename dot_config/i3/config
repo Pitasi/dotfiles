@@ -219,10 +219,11 @@ bar {
 }
 
 
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id xcape -e 'Caps_Lock=Escape'
+exec --no-startup-id unclutter
+exec --no-startup-id dunst
+exec --no-startup-id picom
 exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
-exec_always --no-startup-id xcape -e 'Caps_Lock=Escape'
 exec_always --no-startup-id xset r rate 250 55
-exec_always --no-startup-id unclutter
-exec_always --no-startup-id dunst
-exec_always --no-startup-id picom
 exec_always --no-startup-id autorandr --load horizontal
