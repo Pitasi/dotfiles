@@ -48,13 +48,13 @@ floating_modifier $mod
 set $term_cmd (wmctrl -x -a kitty.kitty && tmux new-window) || kitty
 
 bindsym $mod+Return exec $term_cmd
-bindsym $mod+Shift+Return exec alacritty
+bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # app launcher
-bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+d exec "rofi -combi-modi window,drun,run -show combi -modi combi"
 
 # region screenshot to clipboard
 bindsym $mod+shift+s exec "flameshot gui"
@@ -183,42 +183,46 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# class                 border  bground text    indicator child_border
-client.focused          #6030A8 #6030A8 #FFFFFF #6030A8   #6030A8
-client.focused_inactive #392253 #392253 #FFFFFF #392253   #392253
-client.unfocused        #392253 #392253 #888888 #392253   #392253
-client.urgent           #D83018 #D83018 #FFFFFF #D83018   #D83018
-client.placeholder      #392253 #392253 #FFFFFF #392253   #392253
-
-client.background       #FFFFFF
 new_window pixel 4
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        position top
-        status_command i3status
+# Static colors
+# # class                 border  bground text    indicator child_border
+# client.focused          #6030A8 #6030A8 #FFFFFF #6030A8   #6030A8
+# client.focused_inactive #392253 #392253 #FFFFFF #392253   #392253
+# client.unfocused        #392253 #392253 #888888 #392253   #392253
+# client.urgent           #D83018 #D83018 #FFFFFF #D83018   #D83018
+# client.placeholder      #392253 #392253 #FFFFFF #392253   #392253
+#
+# client.background       #FFFFFF
 
-        colors {
-          background #300048
-          statusline #FFFFFF
-          separator  #FF0000
 
-          focused_workspace  #6030A8 #6030A8 #FFFFFF
-          active_workspace   #6030A8 #6030A8 #FFFFFF
-          inactive_workspace #392253 #392253 #AFAFAF
-          urgent_workspace   #D83018 #D83018 #FFFFFF
-          binding_mode       #D83018 #D83018 #FFFFFF
-        }
-}
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $border_inactive i3wm.color0 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $border_inactive
+client.unfocused        $bg     $bg     $fg  $bg       $border_inactive
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec --no-startup-id wal -R
+exec --no-startup-id ~/.config/i3/scripts/bingpaper.py
 exec --no-startup-id xcape -e 'Caps_Lock=Escape'
 exec --no-startup-id unclutter
 exec --no-startup-id dunst
 exec --no-startup-id picom
 exec --no-startup-id kdeconnect-indicator
-exec_always --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
+exec --no-startup-id polybar main
 exec_always --no-startup-id xset r rate 250 55
 exec_always --no-startup-id autorandr --load horizontal
