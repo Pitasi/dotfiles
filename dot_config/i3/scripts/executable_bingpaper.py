@@ -31,4 +31,4 @@ out_path = Path.home() / Path(".local/share/bingpaper.jpg")
 with out_path.open('wb') as out:
     shutil.copyfileobj(response.raw, out)
 
-subprocess.run(["wal", "-i", str(out_path)])
+subprocess.run(["wal", "-s", "-t", "-i", str(out_path)])
