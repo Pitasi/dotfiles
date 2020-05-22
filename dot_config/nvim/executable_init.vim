@@ -416,6 +416,7 @@ let g:coc_snippet_next = '<tab>'
 " Workspace sessions directory
 " I use this only for session management, that's why autosave and undo history
 " are disabled
+set sessionoptions-=blank " ignore NerdTREE
 let g:workspace_create_new_tabs = 0
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 let g:workspace_persist_undo_history = 0
