@@ -14,7 +14,7 @@ def try_get(*args, **kwargs):
             return requests.get(*args, **kwargs)
         except Exception as exc:
             e = exc
-            sleep(1000)
+            sleep(1)
     raise e
 
 def image_url():
