@@ -45,7 +45,8 @@ height = 22
 ;offset-y = 1%
 fixed-center = false
 
-background = ${colors.background}
+; background = ${colors.background}
+background = #90000000
 foreground = ${colors.foreground}
 
 line-size = 3

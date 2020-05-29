@@ -216,12 +216,12 @@ client.background       $bg
 
 
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id wal -R && ~/.config/i3/scripts/bingpaper.py
+exec --no-startup-id polybar main
 exec --no-startup-id xcape -e 'Caps_Lock=Escape'
 exec --no-startup-id unclutter
 exec --no-startup-id dunst
 exec --no-startup-id picom
 exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id polybar main
+exec --no-startup-id wal -R && ~/.config/i3/scripts/bingpaper.py
 exec_always --no-startup-id xset r rate 250 55
 exec_always --no-startup-id autorandr --load horizontal
