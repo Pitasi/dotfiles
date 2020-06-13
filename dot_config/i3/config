@@ -22,10 +22,9 @@ font pango:DejaVu Sans Mono 8
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-set $lock_command i3lock-fancy-rapid 5 3
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- $lock_command
+set $lock_command light-locker-command -l
+exec --no-startup-id light-locker --no-late-locking --lock-on-lid --lock-on-suspend
+
 # lock screen
 bindsym $mod+Shift+x exec $lock_command
 
