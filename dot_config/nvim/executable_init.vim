@@ -30,7 +30,7 @@ Plug 'benmills/vimux'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'tmhedberg/SimpylFold'
-Plug 'mxw/vim-jsx'
+Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
@@ -40,7 +40,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'vimwiki/vimwiki'
 Plug 'ryanoasis/vim-devicons'
@@ -160,10 +160,10 @@ nnoremap <C-p> :bprevious<CR>
 let g:surround_{char2nr('c')} = "\\\1command\1{\r}" " ysiwctextit<CR>
 
 " Toggle comments with Ctrl-/
-let g:NERDDefaultAlign = 'left'
-let g:NERDSpaceDelims = 1
-nmap <C-_>   <Plug>NERDCommenterToggle
-vmap <C-_>   <Plug>NERDCommenterToggle
+" let g:NERDDefaultAlign = 'left'
+" let g:NERDSpaceDelims = 1
+" nmap <C-_>   <Plug>NERDCommenterToggle
+" vmap <C-_>   <Plug>NERDCommenterToggle
 
 " Exit terminal mode with <ESC>
 tnoremap <Esc> <C-\><C-n>
@@ -230,19 +230,18 @@ let g:NERDTreeColorMapCustom = {
 " Filetypes
 filetype plugin on
 
-" 2 spaces as tab for the following languages
+" Tab width 2
 au FileType html,rust,javascript,tex,css,scss,yaml setlocal
     \ tabstop=2
     \ softtabstop=2
     \ shiftwidth=2
 
-" Javascript
-au FileType javascript let b:ale_linters = ['eslint']
-au FileType javascript let b:ale_fixers = ['prettier', 'eslint']
-
-" Python
-au FileType python let b:ale_linters = ['pyls', 'pylint']
-au FileType python let b:ale_fixers = ['yapf']
+" 4 spaces
+au FileType erlang setlocal
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+	\ expandtab
 
 au FileType tex,markdown,vimwiki setlocal
     \ spell
@@ -254,10 +253,6 @@ au FileType tex vmap <buffer> <A-b> Sctextbf<CR>
 au FileType tex vmap <buffer> <A-i> Sctextit<CR>
 
 " GoLang + vim-go = WOW
-au FileType go set noexpandtab
-au FileType go set shiftwidth=4
-au FileType go set softtabstop=4
-au FileType go set tabstop=4
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
