@@ -39,7 +39,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'vimwiki/vimwiki'
@@ -47,8 +47,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kassio/neoterm'
 Plug 'DougBeney/pickachu'
 Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
 Plug 'amix/vim-zenroom2'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'takac/vim-hardtime'
+Plug 'danilamihailov/beacon.nvim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " keep this at the end
 call plug#end()
 
@@ -227,8 +230,12 @@ let g:NERDTreeColorMapCustom = {
     \ "Ignored"   : ["#808080", 244, "NONE", "NONE"]
     \ }
 
+let g:hardtime_default_on = 1
+
 " Filetypes
 filetype plugin on
+
+autocmd FileType markdown,mkd,text,mail,rst,tex,textile,asciidoc call pencil#init()
 
 " 2 spaces as tab for the following languages
 au FileType html,rust,javascript,tex,css,scss,yaml setlocal
@@ -427,8 +434,102 @@ let g:workspace_autosave = 0
 
 
 " vimwiki
+let g:vimwiki_global_ext = 0
 let wiki_1 = {}
 let wiki_1.path = '~/keybase/private/zaphodias/vimwiki'
 let wiki_1.path_html = '~/keybase/private/zaphodias/vimwiki_html'
 
 let g:vimwiki_list = [wiki_1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" Fuzzy finder
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-h': 'split',
+  \ 'ctrl-s': 'vsplit' }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+nnoremap <C-p> :<C-u>Files<CR>
+nnoremap <C-f> :<C-u>Rg<CR>
+nnoremap <C-q> :<C-u>BLines<CR>
+"nnoremap <leader>t :Tags<CR>
+
+let g:fzf_tags_command = 'ctags -R'
+" Border color
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.95, 'height': 0.95,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_COMMAND="rg --files"
+
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+"Get Files
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+
+" Get text in files with Rg
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+
+" Ripgrep advanced
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
