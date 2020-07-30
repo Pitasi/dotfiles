@@ -19,14 +19,10 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-set $lock_command light-locker-command -l
-exec --no-startup-id light-locker --no-late-locking --lock-on-lid --lock-on-suspend
+exec --no-startup-id light-locker --no-late-locking --lock-on-suspend --lock-on-lid &
 
 # lock screen
-bindsym $mod+Shift+x exec $lock_command
+bindsym $mod+Shift+x exec light-locker-command -l
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3blocks pkill -SIGRTMIN+10 i3blocks
