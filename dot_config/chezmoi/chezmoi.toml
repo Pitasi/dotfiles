@@ -1,2 +1,6 @@
 [sourceVCS]
     autoCommit = true
+
+[merge]
+  command = "nvim"
+  args = "-d"
