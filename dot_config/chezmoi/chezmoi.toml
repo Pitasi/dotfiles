@@ -2,5 +2,4 @@
     autoCommit = true
 
 [merge]
-  command = "nvim"
-  args = "-d"
+  command = "meld"

@@ -31,6 +31,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'tmhedberg/SimpylFold'
 Plug 'mxw/vim-jsx'
+Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
@@ -118,8 +119,11 @@ xnoremap p pgvy
 
 " Undo persistent after close file
 set undofile
-set undodir=$HOME/.vimUndoFiles
+set undodir=$HOME/.vim/undo
 set undolevels=5000
+set backupdir=~/.vim/backup
+set dir=~/.vim/swap
+set bk
 
 set inccommand=nosplit  " preview replace
 
@@ -243,13 +247,12 @@ au FileType html,rust,javascript,tex,css,scss,yaml setlocal
     \ softtabstop=2
     \ shiftwidth=2
 
-" Javascript
-au FileType javascript let b:ale_linters = ['eslint']
-au FileType javascript let b:ale_fixers = ['prettier', 'eslint']
-
-" Python
-au FileType python let b:ale_linters = ['pyls', 'pylint']
-au FileType python let b:ale_fixers = ['yapf']
+" 4 spaces
+au FileType erlang setlocal
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+	\ expandtab
 
 au FileType tex,markdown,vimwiki setlocal
     \ spell
