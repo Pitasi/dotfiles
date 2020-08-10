@@ -344,51 +344,6 @@ nmap <silent> gR <Plug>(coc-refactor)
 " C-space to trigger completions list
 inoremap <silent><expr> <c-space> coc#refresh()
 
-let s:LSP_CONFIG = {
-    \ 'flow': {
-    \   'command': 'flow',
-    \   'args': ['lsp'],
-    \   'filetypes': ['javascript', 'javascriptreact', 'javascript.jsx'],
-    \   'initializationOptions': {},
-    \   'requireRootPattern': 1,
-    \   'settings': {},
-    \   'rootPatterns': ['.flowconfig']
-    \ },
-    \ 'docker': {
-    \   'command': exepath('docker-langserver'),
-    \   'args': ['--stdio'],
-    \   'filetypes': ['dockerfile']
-    \  },
-    \ 'golang': {
-    \   'command': 'gopls',
-    \   "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-    \   'filetypes': ['go'],
-    \  }
-    \ }
-
-call coc#config('coc.preferences', {
-    \ 'autoTrigger': 'always',
-    \ 'colorSupport': 1,
-    \ 'diagnostic.errorSign': '×',
-    \ 'diagnostic.warningSign': '●',
-    \ 'diagnostic.infoSign': '!',
-    \ 'diagnostic.hintSign': '!',
-    \ })
-
-call coc#config('highlight', {
-    \ 'colors': 1,
-    \ 'disableLanguages': ['vim']
-    \ })
-
-let s:languageservers = {}
-for [lsp, config] in items(s:LSP_CONFIG)
-    let s:languageservers[lsp] = config
-endfor
-
-if !empty(s:languageservers)
-    call coc#config('languageserver', s:languageservers)
-endif
-
 """""""""""" Coc snippet  """"""""""""""""""
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
