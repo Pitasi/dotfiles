@@ -1,0 +1,37 @@
+{
+	"languageserver": {
+		"flow": {
+			"command": "flow",
+			"args": ["lsp"],
+			"filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
+			"initializationOptions": {},
+			"requireRootPattern": 1,
+			"settings": {},
+			"rootPatterns": [".flowconfig"]
+		},
+		"docker": {
+			"command": "docker-langserver",
+			"args": ["--stdio"],
+			"filetypes": ["dockerfile"]
+		 },
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["go"]
+		 }
+	},
+
+	"coc.preferences": {
+		"autoTrigger": "always",
+		"colorSupport": 1,
+		"diagnostic.errorSign": "×",
+		"diagnostic.warningSign": "●",
+		"diagnostic.infoSign": "!",
+		"diagnostic.hintSign": "!"
+	},
+
+	"highlight": {
+		"colors": 1,
+		"disableLanguages": ["vim"]
+	}
+}
