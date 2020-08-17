@@ -33,5 +33,9 @@
 	"highlight": {
 		"colors": 1,
 		"disableLanguages": ["vim"]
-	}
+	},
+
+	"python.jediEnabled": false,
+
+	"eslint.autoFixOnSave": true
 }
