@@ -54,6 +54,9 @@ bindsym $mod+d exec "rofi -combi-modi window,drun,run -show combi -modi combi"
 # region screenshot to clipboard
 bindsym $mod+shift+s exec "flameshot gui"
 
+# trigger autorandr monitor layout change
+bindsym $mod+p exec "autorandr --change"
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
