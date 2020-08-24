@@ -227,4 +227,3 @@ exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id wal -R && ~/.config/i3/scripts/bingpaper.py
 exec --no-startup-id flameshot
 exec_always --no-startup-id xset r rate 250 55
-exec_always --no-startup-id autorandr --load horizontal
