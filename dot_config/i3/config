@@ -40,7 +40,8 @@ floating_modifier $mod
 
 # instead of spawning a new terminal, focus the exisiting one and create a new
 # tmux window
-set $term_cmd (wmctrl -x -a kitty.kitty && tmux new-window) || kitty
+# set $term_cmd (wmctrl -x -a kitty.kitty && tmux new-window) || kitty
+set $term_cmd kitty
 
 bindsym $mod+Return exec $term_cmd
 bindsym $mod+Shift+Return exec kitty
@@ -199,14 +200,15 @@ new_window pixel 4
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $fg i3wm.color6 #f0f0f0
+set_from_resource $bg i3wm.color1 #f0f0f0
+set_from_resource $unfocused_bg i3wm.color0 #f0f0f0
 set_from_resource $border_inactive i3wm.color0 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $border_inactive
-client.unfocused        $bg     $bg     $fg  $bg       $border_inactive
+client.unfocused        $unfocused_bg $unfocused_bg $fg  $bg       $border_inactive
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
