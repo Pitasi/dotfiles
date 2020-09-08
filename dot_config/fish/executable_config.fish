@@ -7,9 +7,9 @@ set -x GPG_TTY (tty)
 set -U -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
-if command -v tmux > /dev/null && ! set -q TMUX && status is-interactive
-    exec tmux new-session -A -s default
-end
+# if command -v tmux > /dev/null && ! set -q TMUX && status is-interactive
+#     exec tmux new-session -A -s default
+# end
 
 # Enable vi bindings + tweaks to still use Ctrl-F, Ctrl-N, Ctrl-P
 fish_vi_key_bindings
