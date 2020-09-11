@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Set up GPG as SSH agent (so I can use my yubikey as ssh key)
+export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent updatestartuptty /bye > /dev/null
