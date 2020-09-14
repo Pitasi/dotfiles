@@ -1,0 +1,19 @@
+{
+    "go.useLanguageServer": true,
+    "go.liveErrors": {
+        "enabled": true,
+        "delay": 500
+    },
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "OperatorMono Nerd Font",
+    "window.zoomLevel": -0.25,
+    "window.titleBarStyle": "custom",
+    "terminal.integrated.fontFamily": "'OperatorMono Nerd Font', 'Hack Nerd Font'",
+    "terminal.integrated.rendererType": "dom",
+    "git.autofetch": true,
+    "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": true,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "editor.lineNumbers": "relative",
+}
