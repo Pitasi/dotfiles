@@ -4,6 +4,9 @@
         "enabled": true,
         "delay": 500
     },
+    "go.alternateTools": {
+        "go": "/usr/lib/go/bin/go"
+    },
     "editor.formatOnSave": true,
     "editor.fontFamily": "OperatorMono Nerd Font",
     "window.zoomLevel": -0.25,
