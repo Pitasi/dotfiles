@@ -226,6 +226,7 @@ label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
+interval = 10
 
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
