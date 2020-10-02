@@ -9,7 +9,7 @@
     },
     "editor.formatOnSave": true,
     "editor.fontFamily": "OperatorMono Nerd Font",
-    "window.zoomLevel": -0.25,
+    "window.zoomLevel": 0,
     "window.titleBarStyle": "custom",
     "terminal.integrated.fontFamily": "'OperatorMono Nerd Font', 'Hack Nerd Font'",
     "terminal.integrated.rendererType": "dom",
@@ -19,4 +19,5 @@
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
     "editor.lineNumbers": "relative",
+    "cSpell.language": "it,en",
 }
