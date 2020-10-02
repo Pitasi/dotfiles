@@ -51,7 +51,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
 Plug 'amix/vim-zenroom2'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'takac/vim-hardtime'
 Plug 'danilamihailov/beacon.nvim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " keep this at the end
 call plug#end()
