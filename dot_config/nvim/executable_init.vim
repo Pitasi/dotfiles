@@ -20,7 +20,7 @@ Plug 'rakr/vim-one'
 Plug 'robertmeta/nofrils'
 Plug 'itchyny/lightline.vim'
 Plug 'thaerkh/vim-workspace'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
