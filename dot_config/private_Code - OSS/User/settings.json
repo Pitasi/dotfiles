@@ -46,4 +46,5 @@
     "gitlens.codeLens.recentChange.enabled": false,
     "editor.lineNumbers": "relative",
     "cSpell.language": "it,en",
+    "cSpell.enabled": false,
 }
