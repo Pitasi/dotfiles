@@ -1,5 +1,5 @@
 set -x EDITOR nvim
-set -x PATH $PATH ~/go/bin ~/.cargo/bin ~/.gem/ruby/2.6.0/bin ~/.config/yarn/global/node_modules/.bin
+set -x PATH $PATH ~/go/bin ~/.cargo/bin ~/.gem/ruby/2.6.0/bin ~/.config/yarn/global/node_modules/.bin ~/.dotnet/tools
 
 status --is-interactive; and source (pyenv init -|psub)
 
