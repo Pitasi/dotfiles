@@ -19,10 +19,10 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
-exec --no-startup-id light-locker --no-late-locking --lock-on-suspend --lock-on-lid &
+exec --no-startup-id xss-lock -- ~/.config/i3/lock.sh
 
 # lock screen
-bindsym $mod+Shift+x exec light-locker-command -l
+bindsym $mod+Shift+x exec ~/.config/i3/lock.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3blocks pkill -SIGRTMIN+10 i3blocks
