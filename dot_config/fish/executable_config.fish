@@ -1,5 +1,6 @@
 set -x EDITOR "code -w"
 set -x PATH $PATH ~/go/bin ~/.cargo/bin ~/.gem/ruby/2.6.0/bin ~/.config/yarn/global/node_modules/.bin ~/.dotnet/tools
+set --universal nvm_default_version latest
 
 status --is-interactive; and source (pyenv init -|psub)
 
