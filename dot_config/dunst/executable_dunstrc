@@ -1,5 +1,5 @@
 [global]
-    font = "Noto Sans 18px"
+    font = "Noto Sans 16px"
     markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
@@ -25,6 +25,7 @@
     icon_path = /usr/share/icons/Papirus-Dark/16x16/actions
     max_icon_size = 64
     mouse_left_click = do_action
+    corner_radius = 12
 
 [shortcuts]
     close = ctrl+space
@@ -33,13 +34,13 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#282828"
-    foreground = "#ebdbb2"
+    background = "#ffffff90"
+    foreground = "#282828"
     timeout = 5
 
 [urgency_normal]
-    background = "#282828"
-    foreground = "#ebdbb2"
+    background = "#ffffff90"
+    foreground = "#282828"
     timeout = 10
 
 [urgency_critical]

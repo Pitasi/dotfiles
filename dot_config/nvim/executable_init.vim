@@ -25,6 +25,7 @@ Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'puremourning/vimspector'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 Plug 'ntpeters/vim-better-whitespace'
@@ -52,6 +53,7 @@ Plug 'reedes/vim-pencil'
 Plug 'amix/vim-zenroom2'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'danilamihailov/beacon.nvim'
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " keep this at the end
 call plug#end()
 
