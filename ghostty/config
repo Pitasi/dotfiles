@@ -1,0 +1,23 @@
+# Options
+theme = dark:tokyonight,light:tokyonight-day
+font-size = 16
+font-family = CaskaydiaCove Nerd Font Mono
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+shell-integration-features = no-cursor
+cursor-style = block
+window-colorspace = display-p3
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+adjust-cell-height = 3
+mouse-hide-while-typing = true
+
+# Keybindings
+keybind = ctrl+z>\=new_split:right
+keybind = ctrl+z>-=new_split:down
+keybind = ctrl+z>h=goto_split:left
+keybind = ctrl+z>j=goto_split:bottom
+keybind = ctrl+z>k=goto_split:top
+keybind = ctrl+z>l=goto_split:right

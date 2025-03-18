@@ -1,0 +1,20 @@
+theme = "tokyonight"
+
+[editor]
+true-color = true
+clipboard-provider = "pasteboard"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[keys.normal]
+"ret" = "goto_word"

@@ -1,5 +1,0 @@
-[sourceVCS]
-    autoCommit = true
-
-[merge]
-  command = "meld"
