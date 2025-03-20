@@ -1,1 +1,5 @@
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "bash", args = ["-c", "goimports | gofumpt"] }
 
